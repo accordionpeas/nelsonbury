@@ -46,6 +46,7 @@ const getHTML = ({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="${description}">
+        <meta name="theme-color" content="#8ed4e6" />
         <title>${title || defaultTitle}</title>
         ${allCSS}
         <link rel="shortcut icon" type="image/png" href="${favicon}" />
