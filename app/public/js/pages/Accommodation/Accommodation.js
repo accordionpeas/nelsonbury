@@ -33,7 +33,7 @@ const Accommodation = ({
               </p>
               <p>
                 The price is £50 per person per night and will be payable to us and due{' '}
-                before 24th April 2020. 
+                before 24th April 2020.
               </p>
               <p>
                 Priority will be given to immediate family and the wedding party.

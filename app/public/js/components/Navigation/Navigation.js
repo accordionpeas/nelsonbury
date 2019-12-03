@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import NavigationItem from './NavigationItem';
+import isServer from '../../utils/is-server';
 
 const generateNavigationClassNames = ({ isOpen }) => (
   classNames(
     'navigation',
     {
       'navigation--is-open': isOpen,
+      'navigation--has-transition': !isServer,
     },
   )
 );

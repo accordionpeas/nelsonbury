@@ -73,12 +73,6 @@ module.exports = env => (
       new webpack.IgnorePlugin(/^node-fetch.*$/),
       new CssoWebpackPlugin({ pluginOutputPostfix: 'min' }),
       new ExtractCssChunks(),
-      new CopyWebpackPlugin([
-        {
-          from: './.well-known/',
-          to: './.well-known/',
-        },
-      ]),
     ],
   }
 );
