@@ -1,0 +1,14 @@
+{
+  "check-coverage": false,
+  "per-file": true,
+  "lines": 80,
+  "statements": 80,
+  "functions": 80,
+  "branches": 80,
+  "include": [
+    "app/**/*.js"
+  ],
+  "exclude": [
+    "app/**/*.spec.js"
+  ]
+}

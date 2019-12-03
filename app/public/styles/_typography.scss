@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Lavanderia Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('lavanderia regular'), url('/assets/lavanderia-regular.otf') format('opentype');
+}
+
+$primary-font-family: 'Raleway', Helvetica, Arial, sans-serif;
+$secondary-font-family: 'Lavanderia Regular', Helvetica, Arial, sans-serif;

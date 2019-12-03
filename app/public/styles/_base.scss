@@ -1,0 +1,157 @@
+body {
+  font-family: $primary-font-family;
+}
+
+a,
+a:hover,
+a:focus {
+  color: black;
+  text-decoration: underline;
+}
+
+p {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+
+li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.page {
+  background: white;
+  color: black;
+  margin-top: 200px;
+
+  @include breakpoint(large down) {
+    margin-top: 120px;
+  }
+}
+
+.page__min-height {
+  min-height: 600px;
+}
+
+.page__main {
+  padding: 40px 0;
+}
+
+.page__section {
+  margin: 0 0 50px;
+}
+
+h1,
+.h1 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: bold;
+  margin: 0 0 20px;
+  color: $color-dark-yellow;
+  text-align: center;
+}
+
+h2,
+.h2 {
+  font-size: 24px;
+  line-height: 25px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: $color-dark-yellow;
+}
+
+h3,
+.h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: $color-dark-yellow;
+}
+
+h4,
+.h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding: 10px 0 0;
+}
+
+.heading__link {
+  &,
+  &:hover,
+  &:focus {
+    color: $color-dark-yellow;
+    text-decoration: none;
+  }
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: $primary-font-family;
+}
+
+.flex-1 {
+  flex: 1;
+
+  // IE only
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    flex: 1 0 0;
+  }
+}
+
+.grid-margin-x > .large-offset-0 {
+  @include breakpoint(large up) {
+    margin-left: 1rem !important;
+  }
+}
+
+.small-order-1 {
+  @include breakpoint(small up) {
+    order: 1;
+  }
+}
+
+.medium-order-1 {
+  @include breakpoint(medium up) {
+    order: 1;
+  }
+}
+
+.large-order-1 {
+  @include breakpoint(large up) {
+    order: 1;
+  }
+}
+
+.small-order-2 {
+  @include breakpoint(small up) {
+    order: 2;
+  }
+}
+
+.medium-order-2 {
+  @include breakpoint(medium up) {
+    order: 2;
+  }
+}
+
+.large-order-2 {
+  @include breakpoint(large up) {
+    order: 2;
+  }
+}
+
+.grecaptcha-badge {
+  display: none !important;
+}
+
+.no-margin {
+  margin: 0;
+}

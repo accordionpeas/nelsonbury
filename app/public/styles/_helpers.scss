@@ -1,0 +1,53 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.is-visible-through-modal {
+  position: relative;
+  z-index: 2;
+}
+
+.show-for-sr {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.align-center {
+  justify-content: center;
+}
+
+.align-end {
+  justify-content: flex-end;
+}
+
+.align-middle {
+  align-items: center;
+}
+
+.align-bottom {
+  align-items: flex-end;
+}
+
+.align-spaced {
+  justify-content: space-between;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-left {
+  text-align: left;
+}

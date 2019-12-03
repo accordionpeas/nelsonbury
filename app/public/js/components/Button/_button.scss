@@ -1,0 +1,18 @@
+.button {
+  background-color: $color-pink;
+  color: $color-white;
+  border-radius: 6px;
+  padding: 10px 7px;
+  min-width: 150px;
+  margin: 20px 0 0;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: $color-grey;
+  }
+}

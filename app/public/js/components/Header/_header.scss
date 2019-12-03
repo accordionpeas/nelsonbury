@@ -1,0 +1,110 @@
+.header {
+  background-color: $color-blue;
+  padding: 20px 0 10px;
+  color: $color-white;
+  position: fixed;
+  width: 100%;
+  height: 200px;
+  z-index: 2;
+
+  @include breakpoint(large down) {
+    height: 120px;
+  }
+
+  p {
+    font-size: 18px;
+
+    a {
+      &,
+      &:hover,
+      &:focus,
+      &:visited,
+      &:active {
+        color: $color-white;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-light-yellow;
+      }
+    }
+  }
+
+  &__logo {
+    width: 300px;
+    height: 115px;
+
+    @include breakpoint(large down) {
+      width: 230px;
+      height: 88px;
+    }
+  }
+
+  &__home-link-container {
+    @include breakpoint(large down) {
+      justify-content: space-between;
+    }
+  }
+
+  &__home-link {
+    &,
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+      display: inline-block;
+      color: $color-light-yellow;
+      font-size: 60px;
+      text-decoration: none;
+      font-family: $secondary-font-family;
+
+      @include breakpoint(large down) {
+        font-size: 50px;
+      }
+    }
+  }
+
+  &__curve {
+    position: absolute;
+    width: 300px; 
+    height: 200px;  
+    border: solid 1px goldenrod;
+    border-color: goldenrod transparent transparent transparent;
+    border-radius: 50%/100px 100px 0 0;
+    transform: rotateX(180deg) skewY(165deg) scale(3);
+    right: 0;
+    top: -275px;
+
+    @include breakpoint(large down) {
+      display: none;
+    }
+  }
+  
+  &__light {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: absolute;
+
+    @include breakpoint(large down) {
+      display: none;
+    }
+  }
+
+  &__gold-light {
+    background-color: goldenrod;
+  }
+  
+  &__white-light {
+    background-color: $color-light-yellow;
+  }
+
+  &__yellow-light {
+    background-color: $color-dark-yellow;
+  }
+
+  &__pink-light {
+    background-color: $color-pink;
+  }
+}

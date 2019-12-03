@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# NPM
+node_modules/
+
+# Environment variables
+.env
+
+# Build files
+build
+.nyc_output
+coverage

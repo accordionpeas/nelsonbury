@@ -1,0 +1,54 @@
+.navigation {
+  @include breakpoint(large down) {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 110px);
+    top: 110px;
+    left: 0;
+    background-color: $color-blue;
+    transform: translateX(100%);
+    transition: transform 250ms ease-in-out;
+
+    &--is-open {
+      transform: none;
+    }
+  }
+
+  &__list-container {
+    @include breakpoint(large down) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__list {
+    @include breakpoint(large down) {
+      flex-direction: column;
+    }
+  }
+
+  &__list-item {
+    margin: 10px 30px 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 7px 12px;
+    display: inline-block;
+
+    &--is-selected {
+      color: $color-light-yellow;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-light-yellow;
+      text-decoration: none;
+    }
+  }
+}

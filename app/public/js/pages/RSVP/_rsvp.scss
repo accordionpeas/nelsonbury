@@ -1,0 +1,102 @@
+.rsvp {
+  &__form {
+    width: 100%;
+  }
+
+  &__form-row {
+    padding: 20px 0;
+  }
+
+  &__label {
+    display: block;
+    text-align: right;
+
+    @include breakpoint(medium down) {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__input-container {
+    position: relative;
+    @include breakpoint(medium down) {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 0 20px;
+    }
+
+    &--column {
+      @include breakpoint(medium down) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    & .rsvp__guest-button {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+
+      @include breakpoint(medium down) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__guest-button-cell {
+    @include breakpoint(medium down) {
+      justify-content: center;
+    }
+  }
+
+  &__guest-button {
+    font-size: 14px;
+  }
+
+  &__form-group {
+    border: 1px solid $color-grey;
+    padding: 10px 10px 0;
+    margin: 0 0 30px;
+  }
+
+  &__input-container-inner {
+    padding: 0 0 10px;
+  }
+
+  &__invalid-message {
+    color: red;
+  }
+
+  &__success-message {
+    padding: 50px 0;
+  }
+
+  label {
+    line-height: 21px;
+  }
+
+  input[type=radio] {
+    margin: 0 30px 0 10px;
+    display: inline-block;
+  }
+
+  input[type=text],
+  input[type=email],
+  textarea {
+    border: 1px solid $color-grey;
+    display: inline-block;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+
+    @include breakpoint(medium down) {
+      max-width: 400px;
+    }
+  }
+
+  textarea {
+    height: 150px;
+  }
+}

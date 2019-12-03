@@ -1,0 +1,27 @@
+$global-width: 1024px;
+
+$breakpoints: (
+  small: 0,
+  medium: 480px,
+  large: 768px,
+  xlarge: $global-width,
+);
+
+$breakpoint-classes: (small medium large xlarge);
+
+$grid-container: $global-width;
+
+$grid-columns: 12;
+
+$grid-margin-gutters: (
+  small: 24px,
+  medium: 24px,
+  large: 32px,
+  xlarge: 32px,
+);
+
+$grid-padding-gutters: $grid-margin-gutters;
+
+$grid-container-padding: $grid-padding-gutters;
+
+$grid-container-max: $global-width;
