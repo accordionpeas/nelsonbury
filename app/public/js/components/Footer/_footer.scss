@@ -1,5 +1,12 @@
 .footer {
   background-color: $color-blue;
-  min-height: 100px;
   flex: 1;
+
+  &__image {
+    height: 256px;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    object-fit: cover;
+  }
 }
