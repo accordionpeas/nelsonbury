@@ -19,7 +19,8 @@ const LineUp = ({
             <p className="cover-image__paragraph">
               Welcome to our 3 day wedding festival. We will be spending the weekend of 1st-3rd May 2020 at{' '}
               <a className="cover-image__link" target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/7LPbnWnNvyHWnFoEA">Huntsham Court</a>.{' '}
-              We have room for almost everyone to stay onsite and would love for you to join us.
+              We have room for a large number of guests to stay onsite and would love for{' '}
+              you to join us.
             </p>
           </div>
         </div>
@@ -40,7 +41,7 @@ const LineUp = ({
             <div className="page__section">
               <h2>The Big Day - Saturday 2nd</h2>
               <ul>
-                <li>Breakfast from 9am</li>
+                <li>Breakfast from 9am - 11am</li>
                 <li>Ceremony at <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/sPzxJbt5MutYLV9b7">St. George&apos;s Church</a> 1pm</li>
                 <li>Reception from 3pm</li>
               </ul>
@@ -48,7 +49,7 @@ const LineUp = ({
             <div className="page__section">
               <h2>After party - Sunday 3rd</h2>
               <ul>
-                <li>Breakfast from 10.30am</li>
+                <li>Breakfast from 10am - 12pm</li>
                 <li>Garden party from 12pm</li>
                 <li>BBQ from 4pm</li>
                 <li>After party DJ sets from 7pm</li>
@@ -57,7 +58,7 @@ const LineUp = ({
             <div className="page__section">
               <h2>Monday 4th</h2>
               <ul>
-                <li>Check-out of Hunstham Court at 10am</li>
+                <li>Check-out of Huntsham Court at 10am</li>
               </ul>
             </div>
           </div>

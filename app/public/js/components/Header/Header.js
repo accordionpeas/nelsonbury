@@ -13,7 +13,7 @@ const Header = ({
     <div
       className="header__light header__white-light"
       style={{
-        top: 145,
+        top: 138,
         right: 10,
       }}
     />

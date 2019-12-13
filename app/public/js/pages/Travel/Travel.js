@@ -30,7 +30,7 @@ const Travel = () => (
               </p>
               <p>
                 For guests staying at Huntsham Court, transport will be provided to and from{' '}
-                the church.
+                the church. Please be ready to leave Huntsham Court at 12pm.
               </p>
               <p>
                 For those not staying with us, parking is available at the church.

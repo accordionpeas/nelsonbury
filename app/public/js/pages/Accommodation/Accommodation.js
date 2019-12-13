@@ -59,7 +59,7 @@ const Accommodation = ({
               </p>
               <ul>
                 <li><a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/">The Ginger Peanut</a> (Bampton, 4m)</li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://oldbridwell.co.uk/">Bolham House</a> (Tiverton 6m)</li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://oldbridwell.co.uk/">Bolham House</a> (Tiverton, 6m)</li>
               </ul>
             </div>
           </div>

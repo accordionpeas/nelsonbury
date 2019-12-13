@@ -1,6 +1,7 @@
 .rsvp {
   &__form {
     width: 100%;
+    min-height: calc(100vh - 500px);
   }
 
   &__form-row {

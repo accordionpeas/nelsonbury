@@ -11,7 +11,7 @@ a:focus {
 
 p {
   font-size: 18px;
-  line-height: 24px;
+  line-height: 26px;
   margin-bottom: 15px;
 }
 
@@ -27,7 +27,7 @@ li {
 .page {
   background: white;
   color: black;
-  margin-top: 200px;
+  margin-top: 155px;
 
   @include breakpoint(large down) {
     margin-top: 120px;
@@ -48,7 +48,7 @@ li {
 
 h1,
 .h1 {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 40px;
   font-weight: bold;
   margin: 0 0 20px;
