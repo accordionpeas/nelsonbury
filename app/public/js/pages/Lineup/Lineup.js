@@ -17,7 +17,7 @@ const LineUp = ({
           <div className="cell">
             <h1 className="cover-image__heading">Lineup</h1>
             <p className="cover-image__paragraph">
-              Welcome to our 3 day wedding festival. We will be spending the weekend of 1st-3rd May 2020 at{' '}
+              Welcome to our 3 day wedding festival. We will be spending the weekend of 1st-4th May 2020 at{' '}
               <a className="cover-image__link" target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/7LPbnWnNvyHWnFoEA">Huntsham Court</a>.{' '}
               We have room for a large number of guests to stay onsite and would love for{' '}
               you to join us.
