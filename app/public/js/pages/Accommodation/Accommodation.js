@@ -57,10 +57,34 @@ const Accommodation = ({
                 If you are unable to stay at Hunstham Court with us then here are some{' '}
                 nearby options that we recommend:
               </p>
-              <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/">The Ginger Peanut</a> (Bampton, 4m)</li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://oldbridwell.co.uk/">Bolham House</a> (Tiverton, 6m)</li>
+              <ul className="accommodation-list">
+                <li>
+                  <a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/bedrooms/">The Ginger Peanut</a>
+                  <br/><br/>
+                  We have booked out all 5 rooms at the Ginger Peanut so contact us if you{' '}
+                  want to book one of the rooms.
+                </li>
+                <li>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.bridgehouse-bampton.co.uk/bed-and-breakfast/">Bridge House</a>
+                  <br/><br/>
+                  We have booked out all 3 rooms at the Bridge House so contact us if you{' '}
+                  want to book one of the rooms.
+                </li>
+                <li>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.heronhousebampton.co.uk/">Heron House</a>
+                  <br/><br/>
+                  Book directly online if you want a room here.
+                </li>
+                <li>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.travelodge.co.uk/hotels/102/Tiverton-hotel">Travelodge</a>
+                  <br/><br/>
+                  Book directly online if you want a room here.
+                </li>
               </ul>
+              <p>
+                Guests who are not staying at Huntsham Court are responsible for making their own way to the Church and wedding reception.{' '}
+                Parking is available at both venues.
+              </p>
             </div>
           </div>
         </div>
