@@ -116,7 +116,12 @@ const RSVP = ({
                   >
                     <div className="cell small-12 large-6">
                       <div className="rsvp__label-container">
-                        <label className="rsvp__label" htmlFor="names">Guest {index + 1} name*</label>
+                        <label
+                          className="rsvp__label"
+                          htmlFor={`name-${index + 1}`}
+                        >
+                          Guest {index + 1} name*
+                        </label>
                       </div>
                     </div>
                     <div className="cell small-12 large-6">
