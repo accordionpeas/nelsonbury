@@ -26,7 +26,7 @@ const Travel = () => (
             <div className="page__section">
               <h2>To the church</h2>
               <p>
-                The address is <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/sPzxJbt5MutYLV9b7">St George&apos;s Church, Billet St, Taunton, Devon, TA1 3NG</a>.{' '}
+                The address is <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/sPzxJbt5MutYLV9b7">St George&apos;s Church, Billet St, Taunton, Somerset, TA1 3NG</a>.{' '}
               </p>
               <p>
                 For guests staying at Huntsham Court, transport will be provided to and from{' '}
