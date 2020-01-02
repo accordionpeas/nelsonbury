@@ -60,6 +60,7 @@ const LineUp = ({
               <ul>
                 <li>Check-out of Huntsham Court at 10am</li>
               </ul>
+              <p className="lineup__warning">Please be aware that Monday 4th May 2020 is no longer a bank holiday.</p>
             </div>
           </div>
         </div>
