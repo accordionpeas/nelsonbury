@@ -90,12 +90,15 @@ const Accommodation = ({
         </div>
       </div>
     </div>
-    <div
-      className="cover-image"
-      style={{
-        backgroundImage: `url(/assets/${resolveAsset({ filename: 'bedroom-2.jpg', assetManifest })}`,
-      }}
-    />
+    <div className="video-wrapper">
+      <iframe
+        width="560"
+        height="349"
+        src="https://www.youtube.com/embed/3m7bco2balM"
+        frameBorder="0"
+        allowFullScreen
+      />
+    </div>
   </div>
 );
 
