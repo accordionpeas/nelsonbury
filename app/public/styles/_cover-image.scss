@@ -9,7 +9,7 @@
   justify-content: center;
 
   @include breakpoint(large down) {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 108px);
     background-attachment: scroll;
   }
 
