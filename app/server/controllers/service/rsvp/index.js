@@ -1,15 +1,5 @@
 import * as R from 'ramda';
-import nodemailer from 'nodemailer';
-
-const emailAddress = process.env.GMAIL_USER;
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
-  },
-});
+import sendgrid from 'sendgrid';
 
 const getNames = ({ req }) => (
   R.compose(
@@ -47,17 +37,17 @@ const getEmailText = (req) => {
   const additionalInfo = R.path(['body', 'additional-info'], req);
 
   let text = `
-Name(s): ${names.join(', ')}
-Is attending: ${attending}
+Name(s): ${names.join(', ')}\n
+Is attending: ${attending}\n
   `;
 
   if (attending === 'yes') {
     text += `
-Email: ${email}
-Would like to stay at Huntsham Court: ${stayAtHuntsham}
-Would like to have dinner on Friday night: ${dinnerFridayNight}
-Would like to attend the BBQ on Sunday: ${bbqSunday}
-Additional info: ${additionalInfo}
+Email: ${email}\n
+Would like to stay at Huntsham Court: ${stayAtHuntsham}\n
+Would like to have dinner on Friday night: ${dinnerFridayNight}\n
+Would like to attend the BBQ on Sunday: ${bbqSunday}\n
+Additional info: ${additionalInfo}\n
 Food choices:
 ${foodChoices}
     `;
@@ -65,10 +55,10 @@ ${foodChoices}
 
   if (stayAtHuntsham === 'yes') {
     text += `
-Would like to stay on Friday night: ${stayOnFridayNight}
-Would like to stay on Saturday night: ${stayOnSaturdayNight}
-Would like to stay on Sunday night: ${stayOnSundayNight}
-Registration number: ${regNumber}
+Would like to stay on Friday night: ${stayOnFridayNight}\n
+Would like to stay on Saturday night: ${stayOnSaturdayNight}\n
+Would like to stay on Sunday night: ${stayOnSundayNight}\n
+Registration number: ${regNumber}\n
     `;
   }
 
@@ -80,14 +70,21 @@ export default async (req, res) => {
   const names = getNames({ req });
   const subject = `RSVP from ${names.join(', ')}`;
 
-  const mailOptions = {
-    from: emailAddress,
-    to: emailAddress,
-    subject,
-    text,
-  };
+  const helper = sendgrid.mail;
+  const fromEmail = new helper.Email('rsvp@nelsonbury.com');
+  const toEmail = new helper.Email(process.env.GMAIL_USER);
+  const content = new helper.Content('text/plain', text);
+  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
 
-  await transporter.sendMail(mailOptions);
+  const sg = sendgrid(process.env.SENDGRID_API_KEY);
+
+  const request = sg.emptyRequest({
+    method: 'POST',
+    path: '/v3/mail/send',
+    body: mail.toJSON(),
+  });
+
+  await sg.API(request);
 
   res.send({});
 };
