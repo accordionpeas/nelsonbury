@@ -45,9 +45,8 @@ const Travel = () => (
               </ul>
               <p>Taxi fare will be about £15 from the station to Huntsham Court.</p>
               <p>
-                Tiverton is a very remote area. If you will need a taxi on Saturday night or{' '}
-                Sunday afternoon then we recommend you book it several days in advance. There{' '}
-                is no Uber here.
+                Tiverton is a very remote area. If you will need a taxi then we recommend{' '}
+                you book it several days in advance. There is no Uber here.
               </p>
             </div>
           </div>

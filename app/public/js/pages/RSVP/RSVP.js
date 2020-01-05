@@ -66,7 +66,7 @@ const RSVP = ({
 
   const isAttending = formData.attending === 'yes';
   const isStayingAtHuntsham = formData['stay-at-huntsham'] === 'yes';
-  const isNotStayingAtHuntsham = formData['stay-at-huntsham'] === 'no';
+  const pronoun = noOfGuests === 1 ? 'I' : 'We';
 
   if (didRSVPSucceed) {
     return (
@@ -169,7 +169,7 @@ const RSVP = ({
             <div className="grid-x grid-margin-x align-middle rsvp__form-row">
               <div className="cell small-12 large-6">
                 <div className="rsvp__label-container">
-                  <label className="rsvp__label" htmlFor="attending-yes">I / we will be attending *</label>
+                  <label className="rsvp__label" htmlFor="attending-yes">{pronoun} will be attending *</label>
                 </div>
               </div>
               <div className="cell small-12 large-6">
@@ -214,7 +214,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-at-huntsham-yes">I / we would like to stay at Huntsham Court *</label>
+                      <label className="rsvp__label" htmlFor="stay-at-huntsham-yes">{pronoun} would like to stay at Huntsham Court *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -244,7 +244,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-friday-night-yes">I / we would like to stay on Friday night *</label>
+                      <label className="rsvp__label" htmlFor="stay-on-friday-night-yes">{pronoun} would like to stay on Friday night *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -270,7 +270,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-saturday-night-yes">I / we would like to stay on Saturday night *</label>
+                      <label className="rsvp__label" htmlFor="stay-on-saturday-night-yes">{pronoun} would like to stay on Saturday night *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -296,7 +296,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-sunday-night-yes">I / we would like to stay on Sunday night *</label>
+                      <label className="rsvp__label" htmlFor="stay-on-sunday-night-yes">{pronoun} would like to stay on Sunday night *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -338,12 +338,12 @@ const RSVP = ({
               </>
             )}
 
-            {isNotStayingAtHuntsham && (
-              <>
+            {isAttending && (
+              <Fragment>
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="dinner-friday-night-yes">I / we would like to have dinner at Huntsham Court on Friday night *</label>
+                      <label className="rsvp__label" htmlFor="dinner-friday-night-yes">{pronoun} would like to have dinner at Huntsham Court on Friday night *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -369,7 +369,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="bbq-sunday-yes">I / we would like to attend the BBQ on Sunday *</label>
+                      <label className="rsvp__label" htmlFor="bbq-sunday-yes">{pronoun} would like to attend the BBQ on Sunday *</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -391,11 +391,7 @@ const RSVP = ({
                     </div>
                   </div>
                 </div>
-              </>
-            )}
 
-            {isAttending && (
-              <Fragment>
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
@@ -415,7 +411,7 @@ const RSVP = ({
 
                  <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell">
-                    <h2 className="text-align-center">Food choices</h2>
+                    <h2 className="text-align-center">Wedding Breakfast Food choices</h2>
                   </div>
                 </div>
 

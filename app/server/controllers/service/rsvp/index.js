@@ -6,7 +6,7 @@ const emailAddress = process.env.GMAIL_USER;
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: emailAddress,
+    user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS,
   },
 });
@@ -55,6 +55,8 @@ Is attending: ${attending}
     text += `
 Email: ${email}
 Would like to stay at Huntsham Court: ${stayAtHuntsham}
+Would like to have dinner on Friday night: ${dinnerFridayNight}
+Would like to attend the BBQ on Sunday: ${bbqSunday}
 Additional info: ${additionalInfo}
 Food choices:
 ${foodChoices}
@@ -67,13 +69,6 @@ Would like to stay on Friday night: ${stayOnFridayNight}
 Would like to stay on Saturday night: ${stayOnSaturdayNight}
 Would like to stay on Sunday night: ${stayOnSundayNight}
 Registration number: ${regNumber}
-    `;
-  }
-
-  if (stayAtHuntsham === 'no') {
-    text += `
-Would like to have dinner on Friday night: ${dinnerFridayNight}
-Would like to attend the BBQ on Sunday: ${bbqSunday}
     `;
   }
 
