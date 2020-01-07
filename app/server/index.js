@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import { createServer } from 'http';
 import compression from 'compression';
+import enforce from 'express-sslify';
 import featurePolicyMiddleware from './middleware/feature-policy';
 import referrerPolicyMiddleware from './middleware/referrer-policy';
 import staticMiddleware from './middleware/static';
@@ -28,6 +29,10 @@ const { env } = process;
   // Require here so that env vars are loaded before code runs
   const router = require('./router').default;
   const errorController = require('./controllers/error').default;
+
+  if (process.env.NODE_ENV === 'production') {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  }
 
   app
     .use(helmet())

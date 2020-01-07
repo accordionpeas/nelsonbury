@@ -395,7 +395,7 @@ const RSVP = ({
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell small-12 large-6">
                     <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="additional-info">Anything else we should know?</label>
+                      <label className="rsvp__label" htmlFor="additional-info">Anything else we should know (e.g. are you bringing kids)?</label>
                     </div>
                   </div>
                   <div className="cell small-12 large-6">
@@ -412,6 +412,7 @@ const RSVP = ({
                  <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell">
                     <h2 className="text-align-center">Wedding Breakfast Food choices</h2>
+                    <p className="text-align-center">N.B. Children will be eating from a different menu.</p>
                   </div>
                 </div>
 
@@ -483,6 +484,19 @@ const RSVP = ({
                                   />
                                   <label htmlFor={`main-wellington-${index + 1}`}>Mushroom wellington with butternut squash puree and shredded leeks (V)</label>
                                 </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
+                            <div className="cell small-12 large-6">
+                              <div className="rsvp__label-container">
+                                <p className="rsvp__label">Dessert</p>
+                              </div>
+                            </div>
+                            <div className="cell small-12 large-6">
+                              <div className="rsvp__label-container">
+                                <p>A trio of desserts will be available</p>
                               </div>
                             </div>
                           </div>
