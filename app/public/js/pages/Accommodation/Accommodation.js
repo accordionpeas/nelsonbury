@@ -59,7 +59,7 @@ const Accommodation = ({
               </p>
               <ul className="accommodation-list">
                 <li>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/bedrooms/">The Ginger Peanut</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/luxury-bedrooms/">The Ginger Peanut</a>
                   <br/><br/>
                   We have booked out all 5 rooms at the Ginger Peanut so contact us if you{' '}
                   want to book one of the rooms.

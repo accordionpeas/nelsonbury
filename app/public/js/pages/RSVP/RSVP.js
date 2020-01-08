@@ -401,7 +401,6 @@ const RSVP = ({
                   <div className="cell small-12 large-6">
                     <div className="rsvp__input-container">
                       <textarea
-
                         id="additional-info"
                         name="additional-info"
                       />
