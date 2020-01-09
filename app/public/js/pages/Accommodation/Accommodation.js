@@ -46,9 +46,14 @@ const Accommodation = ({
               <h3>Children</h3>
               <p>
                 Owing to limited space, Huntsham Court is only able to accommodate a small{' '}
-                number of children. Priority will be given to those aged 2 and under.{' '}
+                number of children. Priority will be given to those under 2 years old.{' '}
                 Therefore, if you need to bring your children please let us know when you{' '}
                 RSVP and we will try our best to accommodate them.
+              </p>
+              <p>
+                Please note that according to Huntsham Court rules, children aged over 2{' '}
+                require their own bed and therefore you may find it cheaper to stay in nearby{' '}
+                accommodation or Airbnb.
               </p>
             </div>
             <div className="page__section">
