@@ -8,8 +8,9 @@ import {
 const hashtag = 'nelsonbury';
 
 const filtered = [
-  '1048549362051506388',
-  '737508768667142328',
+  'B87WTqZgo0K',
+  'o8KFFPJAi4',
+  '6NMhbeiuDU',
 ];
 
 // eslint-disable-next-line import/prefer-default-export
@@ -28,7 +29,7 @@ export const fetchPhotos = () => async (dispatch, getState) => {
       const data = await response.json();
 
       const photos = R.compose(
-        R.filter(({ id }) => !filtered.includes(id)),
+        R.filter(({ shortcode }) => !filtered.includes(shortcode)),
         R.map(edge => ({
           id: R.path(['node', 'id'], edge),
           thumbnailURL: R.path(['node', 'thumbnail_src'], edge),
