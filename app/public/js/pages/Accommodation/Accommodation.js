@@ -33,27 +33,11 @@ const Accommodation = ({
               </p>
               <p>
                 The price is £50 per person per night and will be payable to us and due{' '}
-                before 24th April 2020.
-              </p>
-              <p>
-                Priority will be given to immediate family and the wedding party.
+                before 27th July 2021.
               </p>
               <p>
                 The price includes all food and drink and anything else you need for a{' '}
                 comfortable stay.
-              </p>
-
-              <h3>Children</h3>
-              <p>
-                Owing to limited space, Huntsham Court is only able to accommodate a small{' '}
-                number of children. Priority will be given to those under 2 years old.{' '}
-                Therefore, if you need to bring your children please let us know when you{' '}
-                RSVP and we will try our best to accommodate them.
-              </p>
-              <p>
-                Please note that according to Huntsham Court rules, children aged over 2{' '}
-                require their own bed and therefore you may find it cheaper to stay in nearby{' '}
-                accommodation or Airbnb.
               </p>
             </div>
             <div className="page__section">
@@ -65,31 +49,17 @@ const Accommodation = ({
               <ul className="accommodation-list">
                 <li>
                   <a target="_blank" rel="noopener noreferrer" href="https://gingerpeanut.co.uk/luxury-bedrooms/">The Ginger Peanut</a>
-                  <br/><br/>
-                  We have booked out all 5 rooms at the Ginger Peanut so contact us if you{' '}
-                  want to book one of the rooms.
                 </li>
                 <li>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.bridgehouse-bampton.co.uk/bed-and-breakfast/">Bridge House</a>
-                  <br/><br/>
-                  We have booked out all 3 rooms at the Bridge House so contact us if you{' '}
-                  want to book one of the rooms.
                 </li>
                 <li>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.heronhousebampton.co.uk/">Heron House</a>
-                  <br/><br/>
-                  Book directly online if you want a room here.
                 </li>
                 <li>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.travelodge.co.uk/hotels/102/Tiverton-hotel">Travelodge</a>
-                  <br/><br/>
-                  Book directly online if you want a room here.
                 </li>
               </ul>
-              <p>
-                Guests who are not staying at Huntsham Court are responsible for making their own way to the Church and wedding reception.{' '}
-                Parking is available at both venues.
-              </p>
             </div>
           </div>
         </div>

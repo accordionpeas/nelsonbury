@@ -29,11 +29,11 @@ const Travel = () => (
                 The address is <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/sPzxJbt5MutYLV9b7">St George&apos;s Church, Billet St, Taunton, Somerset, TA1 3NG</a>.{' '}
               </p>
               <p>
-                For guests staying at Huntsham Court, transport will be provided to and from{' '}
-                the church. Please be ready to leave Huntsham Court at 12pm.
+                Transport will be provided to and from the church.{' '}
+                Please be ready to leave Huntsham Court at 12pm.
               </p>
               <p>
-                For those not staying with us, parking is available at the church.
+                For those making their own way there, parking is available at the church.
               </p>
             </div>
             <div className="page__section">

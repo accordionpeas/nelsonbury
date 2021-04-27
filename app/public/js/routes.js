@@ -3,7 +3,6 @@ import safeImport from './utils/safe-import';
 import Home from './pages/Home';
 import Lineup from './pages/Lineup';
 import Photos from './pages/Photos';
-import RSVP from './pages/RSVP';
 import Gifts from './pages/Gifts';
 import Accommodation from './pages/Accommodation';
 import NotFound from './pages/NotFound';
@@ -56,18 +55,18 @@ export default [
     description,
     hydrate: safeImport(() => require('../../server/hydrate/accommodation').default),
   },
-  {
-    path: '/rsvp',
-    component: RSVP,
-    title,
-    description,
-    hydrate: safeImport(() => require('../../server/hydrate/rsvp').default),
-    assets: {
-      js: [
-        `https://www.google.com/recaptcha/api.js?render=${process.env.WEB_RECAPTCHA_SITE_KEY}`,
-      ],
-    },
-  },
+  // {
+  //   path: '/rsvp',
+  //   component: RSVP,
+  //   title,
+  //   description,
+  //   hydrate: safeImport(() => require('../../server/hydrate/rsvp').default),
+  //   assets: {
+  //     js: [
+  //       `https://www.google.com/recaptcha/api.js?render=${process.env.WEB_RECAPTCHA_SITE_KEY}`,
+  //     ],
+  //   },
+  // },
   {
     path: '*',
     component: NotFound,

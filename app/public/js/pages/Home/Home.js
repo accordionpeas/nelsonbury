@@ -21,8 +21,7 @@ const Home = ({
         <div className="grid-x">
           <div className="cell text-align-center">
             <h1 className="no-margin">
-              Welcome to 2020&apos;s biggest and best weekend-long party held in the southwest{' '}
-              of England. Forget Glastonbury, get ready for Nelsonbury Festival.
+              Welcome to <span style={{ textDecoration: 'line-through' }}>2020</span> 2021&apos;s biggest and best <span style={{ textDecoration: 'line-through' }}>weekend-long</span> mid-week party held in the southwest of England. <br />Forget Glastonbury, get ready for Nelsonbury!
             </h1>
           </div>
         </div>

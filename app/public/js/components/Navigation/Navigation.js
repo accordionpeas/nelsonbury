@@ -26,7 +26,7 @@ const Navigation = ({
           <NavigationItem to="/accommodation">Accommodation</NavigationItem>
           <NavigationItem to="/photos">Photos</NavigationItem>
           <NavigationItem to="/gifts">Gifts</NavigationItem>
-          <NavigationItem to="/rsvp">RSVP</NavigationItem>
+          {/* <NavigationItem to="/rsvp">RSVP</NavigationItem> */}
         </ul>
       </div>
     </div>

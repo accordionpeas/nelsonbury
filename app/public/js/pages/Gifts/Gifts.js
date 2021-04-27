@@ -8,7 +8,7 @@ const Gifts = () => (
           <div className="cell">
             <h1>Gifts</h1>
             <p>
-              We are very aware that it&apos;s a big ask for you to travel down to Devon and spend your weekend with us,{' '}
+              We are very aware that it&apos;s a big ask for you to travel down to Devon and spend your time with us,{' '}
               and therefore the only gift we&apos;re asking for is the pleasure of your company.
             </p>
           </div>
