@@ -7,6 +7,7 @@ import Gifts from './pages/Gifts';
 import Accommodation from './pages/Accommodation';
 import NotFound from './pages/NotFound';
 import Travel from './pages/Travel';
+import Music from './pages/Music';
 
 const title = 'Nelsonbury Wedding Festival';
 const description = 'Nelsonbury Wedding Festival';
@@ -54,6 +55,13 @@ export default [
     title,
     description,
     hydrate: safeImport(() => require('../../server/hydrate/accommodation').default),
+  },
+  {
+    path: '/music',
+    component: Music,
+    title,
+    description,
+    hydrate: safeImport(() => require('../../server/hydrate/music').default),
   },
   // {
   //   path: '/rsvp',
