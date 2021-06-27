@@ -16,53 +16,32 @@ const getEmailText = (req) => {
   const mapWithIndex = R.addIndex(R.map);
 
   const foodChoices = R.compose(
-    R.join(' '),
+    R.join('\n\n*********************\n\n'),
     mapWithIndex((name, index) => (`
       ${name}
-      Starter: ${R.path(['body', `starter-${index + 1}`], req)}
-      Main: ${R.path(['body', `main-${index + 1}`], req)}
-      Dietary Requirements: ${R.path(['body', `dietary-requirements-${index + 1}`], req)}
+
+      Dietary Requirements: ${R.pathOr('N/A', ['body', `dietary-requirements-${index + 1}`], req)}
+
+      Wedding Breakfast:
+
+      Menu type: ${R.pathOr('N/A', ['body', `menu-type-${index + 1}-wedding-breakfast`], req)}
+      Starter: ${R.pathOr('N/A', ['body', `starter-${index + 1}-wedding-breakfast`], req)}
+      Main: ${R.pathOr('N/A', ['body', `main-${index + 1}-wedding-breakfast`], req)}
+
+
+      Hartnoll lunch:
+
+      Menu type: ${R.pathOr('N/A', ['body', `menu-type-${index + 1}-hartnoll-lunch`], req)}
+      Starter: ${R.pathOr('N/A', ['body', `starter-${index + 1}-hartnoll-lunch`], req)}
+      Main: ${R.pathOr('N/A', ['body', `main-${index + 1}-hartnoll-lunch`], req)}
+      Dessert: ${R.pathOr('N/A', ['body', `dessert-${index + 1}-hartnoll-lunch`], req)}
     `)),
   )(names);
 
-  const attending = R.path(['body', 'attending'], req);
-  const email = R.path(['body', 'email'], req);
-  const stayAtHuntsham = R.path(['body', 'stay-at-huntsham'], req);
-  const stayOnFridayNight = R.path(['body', 'stay-on-friday-night'], req);
-  const stayOnSaturdayNight = R.path(['body', 'stay-on-saturday-night'], req);
-  const stayOnSundayNight = R.path(['body', 'stay-on-sunday-night'], req);
-  const regNumber = R.path(['body', 'reg-number'], req);
-  const dinnerFridayNight = R.path(['body', 'dinner-friday-night'], req);
-  const bbqSunday = R.path(['body', 'bbq-sunday'], req);
-  const additionalInfo = R.path(['body', 'additional-info'], req);
-
-  let text = `
-Name(s): ${names.join(', ')}\n
-Is attending: ${attending}\n
+  return `${foodChoices}
+    
+      Reg number: ${R.pathOr('N/A', ['body', 'reg-number'], req)}
   `;
-
-  if (attending === 'yes') {
-    text += `
-Email: ${email}\n
-Would like to stay at Huntsham Court: ${stayAtHuntsham}\n
-Would like to have dinner on Friday night: ${dinnerFridayNight}\n
-Would like to attend the BBQ on Sunday: ${bbqSunday}\n
-Additional info: ${additionalInfo}\n
-Food choices:
-${foodChoices}
-    `;
-  }
-
-  if (stayAtHuntsham === 'yes') {
-    text += `
-Would like to stay on Friday night: ${stayOnFridayNight}\n
-Would like to stay on Saturday night: ${stayOnSaturdayNight}\n
-Would like to stay on Sunday night: ${stayOnSundayNight}\n
-Registration number: ${regNumber}\n
-    `;
-  }
-
-  return text;
 };
 
 export default async (req, res) => {

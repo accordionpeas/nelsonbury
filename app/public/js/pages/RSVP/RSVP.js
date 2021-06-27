@@ -1,14 +1,19 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
 import Button from '../../components/Button';
+import FoodChoice from './FoodChoice';
+
+const isServer = typeof window === 'undefined';
 
 const getGuestName = ({ index }) => {
-  const input = document.querySelector(`#name-${index + 1}`);
-  const value = input && input.value;
+  if (!isServer) {
+    const input = document.querySelector(`#name-${index + 1}`);
+    const value = input && input.value;
 
-  if (value) {
-    return value;
+    if (value) {
+      return value;
+    }
   }
 
   return `Guest ${index + 1}`;
@@ -17,11 +22,9 @@ const getGuestName = ({ index }) => {
 const getOnChange = ({ setFormData, formData }) => (e) => {
   const name = e.target.getAttribute('name');
   const value = R.path(['target', 'value'], e);
-  const omitStayAtHunstham = name === 'attending' && value === 'no';
-  const data = omitStayAtHunstham ? R.omit(['stay-at-huntsham'], formData) : formData;
 
   setFormData({
-    ...data,
+    ...formData,
     [name]: value,
   });
 };
@@ -34,7 +37,7 @@ const getOnSubmit = ({
 }) => (e) => {
   e.preventDefault();
 
-  const optionalNames = ['additional-info', 'dietary-requirements', 'reg-number'];
+  const optionalNames = ['dietary-requirements', 'reg-number'];
 
   const inputs = [...formRef.current.querySelectorAll('[name]')];
 
@@ -63,23 +66,15 @@ const RSVP = ({
   const formRef = useRef();
   const [formData, setFormData] = useState({});
   const [invalid, setInvalid] = useState(false);
-
-  const isAttending = formData.attending === 'yes';
-  const isStayingAtHuntsham = formData['stay-at-huntsham'] === 'yes';
   const pronoun = noOfGuests === 1 ? 'I' : 'We';
+  const isAttendingHartnollLunch = formData['attending-hartnoll-lunch'] === 'yes';
 
   if (didRSVPSucceed) {
     return (
       <div className="page rsvp">
         <div className="grid-container">
           <div className="grid-x grid-margin-x align-center">
-            {
-              isAttending ? (
-                <p className="rsvp__success-message">Thank you! We&apos;ll be in touch soon.</p>
-              ) : (
-                <p className="rsvp__success-message">Sorry you can&apos;t make it! Thank you for letting us know.</p>
-              )
-            }
+            <p className="rsvp__success-message">Thank you! We look forward to seeing you soon.</p>
           </div>
         </div>
       </div>
@@ -102,10 +97,6 @@ const RSVP = ({
         >
           <div className="grid-container">
             <h1>RSVP</h1>
-            <p>
-              Before sending this form please have a read of the <a href="/lineup">lineup</a> and <a href="/accommodation">accommodation</a>{' '}
-              pages so you&apos;re aware of the itinerary for the weekend.
-            </p>
 
             {
               R.compose(
@@ -167,364 +158,156 @@ const RSVP = ({
             </div>
 
             <div className="grid-x grid-margin-x align-middle rsvp__form-row">
+              <div className="cell">
+                <h2 className="text-align-center">Wedding Breakfast Food choices</h2>
+              </div>
+            </div>
+
+            {
+              R.compose(
+                R.map(index => (
+                  <FoodChoice
+                    type="wedding-breakfast"
+                    key={index}
+                    index={index}
+                    name={getGuestName({ index })}
+                    formData={formData}
+                    childMenu="Sausages and mash with peas and ketchup"
+                    noMenu="There will be fridge space available if you would like to bring your own food for infants"
+                    starters={[
+                      {
+                        label: 'Fresh Dorset crab with spiced avocado, herb salad and Parmesan tuile',
+                        value: 'crab',
+                      },
+                      {
+                        label: 'Caramelised red onion tart with rocket and parmesan salad (V)',
+                        value: 'tart',
+                      },
+                    ]}
+                    mains={[
+                      {
+                        label: 'Rosemary and garlic lamb rump with gremolata, roasted new potatoes, shallots, peppers and red onions',
+                        value: 'lamb',
+                      },
+                      {
+                        label: 'Mushroom wellington with butternut squash puree and shredded leeks (V)',
+                        value: 'wellington',
+                      },
+                    ]}
+                    showDietaryRequirements
+                  />
+                )),
+                R.range(0),
+              )(noOfGuests)
+            }
+
+          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
               <div className="cell small-12 large-6">
                 <div className="rsvp__label-container">
-                  <label className="rsvp__label" htmlFor="attending-yes">{pronoun} will be attending *</label>
+                  <label className="rsvp__label" htmlFor="attending-hartnoll-lunch-yes">{pronoun} will be attending lunch at Hartnoll Hotel on 4th August*</label>
                 </div>
               </div>
               <div className="cell small-12 large-6">
                 <div className="rsvp__input-container">
-                  <label htmlFor="attending-yes">Yes</label>
+                  <label htmlFor="attending-hartnoll-lunch-yes">Yes</label>
                   <input
                     type="radio"
-                    name="attending"
-                    id="attending-yes"
+                    name="attending-hartnoll-lunch"
+                    id="attending-hartnoll-lunch-yes"
                     value="yes"
                   />
-                  <label htmlFor="attending-no">No</label>
+                  <label htmlFor="attending-hartnoll-lunch-no">No</label>
                   <input
                     type="radio"
-                    name="attending"
-                    id="attending-no"
+                    name="attending-hartnoll-lunch"
+                    id="attending-hartnoll-lunch-no"
                     value="no"
                   />
                 </div>
               </div>
             </div>
 
-            {isAttending && (
+            {isAttendingHartnollLunch && (
               <>
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="email">Contact email address *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-at-huntsham-yes">{pronoun} would like to stay at Huntsham Court *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="stay-at-huntsham-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="stay-at-huntsham"
-                        id="stay-at-huntsham-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="stay-at-huntsham-no">No</label>
-                      <input
-                        type="radio"
-                        name="stay-at-huntsham"
-                        id="stay-at-huntsham-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {isStayingAtHuntsham && (
-              <>
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-friday-night-yes">{pronoun} would like to stay on Friday night *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="stay-on-friday-night-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="stay-on-friday-night"
-                        id="stay-on-friday-night-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="stay-on-friday-night-no">No</label>
-                      <input
-                        type="radio"
-                        name="stay-on-friday-night"
-                        id="stay-on-friday-night-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-saturday-night-yes">{pronoun} would like to stay on Saturday night *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="stay-on-saturday-night-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="stay-on-saturday-night"
-                        id="stay-on-saturday-night-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="stay-on-saturday-night-no">No</label>
-                      <input
-                        type="radio"
-                        name="stay-on-saturday-night"
-                        id="stay-on-saturday-night-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="stay-on-sunday-night-yes">{pronoun} would like to stay on Sunday night *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="stay-on-sunday-night-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="stay-on-sunday-night"
-                        id="stay-on-sunday-night-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="stay-on-sunday-night-no">No</label>
-                      <input
-                        type="radio"
-                        name="stay-on-sunday-night"
-                        id="stay-on-sunday-night-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="reg-number">Registration number (if bringing a car)</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <input
-                        type="text"
-                        id="reg-number"
-                        name="reg-number"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-
-            {isAttending && (
-              <Fragment>
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="dinner-friday-night-yes">{pronoun} would like to have dinner at Huntsham Court on Friday night *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="dinner-friday-night-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="dinner-friday-night"
-                        id="dinner-friday-night-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="dinner-friday-night-no">No</label>
-                      <input
-                        type="radio"
-                        name="dinner-friday-night"
-                        id="dinner-friday-night-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="bbq-sunday-yes">{pronoun} would like to attend the BBQ on Sunday *</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <label htmlFor="bbq-sunday-yes">Yes</label>
-                      <input
-                        type="radio"
-                        name="bbq-sunday"
-                        id="bbq-sunday-yes"
-                        value="yes"
-                      />
-                      <label htmlFor="bbq-sunday-no">No</label>
-                      <input
-                        type="radio"
-                        name="bbq-sunday"
-                        id="bbq-sunday-no"
-                        value="no"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__label-container">
-                      <label className="rsvp__label" htmlFor="additional-info">Anything else we should know (e.g. are you bringing kids)?</label>
-                    </div>
-                  </div>
-                  <div className="cell small-12 large-6">
-                    <div className="rsvp__input-container">
-                      <textarea
-                        id="additional-info"
-                        name="additional-info"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell">
-                    <h2 className="text-align-center">Wedding Breakfast Food choices</h2>
-                    <p className="text-align-center">N.B. Children will be eating from a different menu.</p>
+                    <h2 className="text-align-center">Hartnoll Hotel lunch food choices</h2>
                   </div>
                 </div>
-
-                {
-                  R.compose(
-                    R.map(index => (
-                      <div
-                        key={index}
-                        className="grid-x rsvp__form-group"
-                      >
-                        <div className="cell small-12">
-                          <h3 className="text-align-center">
-                            {getGuestName({ index })}
-                          </h3>
-
-                          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__label-container">
-                                <label className="rsvp__label" htmlFor={`starter-crab-${index + 1}`}>Starter *</label>
-                              </div>
-                            </div>
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__input-container rsvp__input-container--column">
-                                <div className="rsvp__input-container-inner flex-container align-middle">
-                                  <input
-                                    type="radio"
-                                    name={`starter-${index + 1}`}
-                                    id={`starter-crab-${index + 1}`}
-                                    value="crab"
-                                  />
-                                  <label htmlFor={`starter-crab-${index + 1}`}>Fresh Dorset crab with spiced avocado, herb salad and Parmesan tuile</label>
-                                </div>
-                                <div className="flex-container align-middle">
-                                  <input
-                                    type="radio"
-                                    name={`starter-${index + 1}`}
-                                    id={`starter-tart-${index + 1}`}
-                                    value="tart"
-                                  />
-                                  <label htmlFor={`starter-tart-${index + 1}`}>Caramelised red onion tart with rocket and parmesan salad (V)</label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__label-container">
-                                <label className="rsvp__label" htmlFor={`main-lamb-${index + 1}`}>Main *</label>
-                              </div>
-                            </div>
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__input-container rsvp__input-container--column">
-                                <div className="rsvp__input-container-inner flex-container align-middle">
-                                  <input
-                                    type="radio"
-                                    name={`main-${index + 1}`}
-                                    id={`main-lamb-${index + 1}`}
-                                    value="lamb"
-                                  />
-                                  <label htmlFor={`main-lamb-${index + 1}`}>Rosemary and garlic lamb rump with dauphinoise potatoes, greens and butternut squash puree</label>
-                                </div>
-                                <div className="flex-container align-middle">
-                                  <input
-                                    type="radio"
-                                    name={`main-${index + 1}`}
-                                    id={`main-wellington-${index + 1}`}
-                                    value="wellington"
-                                  />
-                                  <label htmlFor={`main-wellington-${index + 1}`}>Mushroom wellington with butternut squash puree and shredded leeks (V)</label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__label-container">
-                                <p className="rsvp__label">Dessert</p>
-                              </div>
-                            </div>
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__label-container">
-                                <p>A trio of desserts will be available</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="grid-x grid-margin-x align-middle rsvp__form-row">
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__label-container">
-                                <label className="rsvp__label" htmlFor={`dietary-requirements-${index + 1}`}>Dietary Requirements</label>
-                              </div>
-                            </div>
-                            <div className="cell small-12 large-6">
-                              <div className="rsvp__input-container">
-                                <input
-                                  type="text"
-                                  id={`dietary-requirements-${index + 1}`}
-                                  name={`dietary-requirements-${index + 1}`}
-                                />
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    )),
-                    R.range(0),
-                  )(noOfGuests)
-                }
-              </Fragment>
+                {R.compose(
+                  R.map(index => (
+                    <FoodChoice
+                      type="hartnoll-lunch"
+                      key={index}
+                      index={index}
+                      name={getGuestName({ index })}
+                      formData={formData}
+                      childMenu=""
+                      starters={[
+                        {
+                          label: 'Starter One',
+                          value: 'one',
+                        },
+                        {
+                          label: 'Starter Two',
+                          value: 'two',
+                        },
+                        {
+                          label: 'Starter Three',
+                          value: 'three',
+                        },
+                      ]}
+                      mains={[
+                        {
+                          label: 'Main One',
+                          value: 'one',
+                        },
+                        {
+                          label: 'Main Two',
+                          value: 'two',
+                        },
+                        {
+                          label: 'Main Three',
+                          value: 'three',
+                        },
+                      ]}
+                      desserts={[
+                        {
+                          label: 'Dessert One',
+                          value: 'one',
+                        },
+                        {
+                          label: 'Dessert Two',
+                          value: 'two',
+                        },
+                        {
+                          label: 'Dessert Three',
+                          value: 'three',
+                        },
+                      ]}
+                    />
+                  )),
+                  R.range(0),
+                )(noOfGuests)}
+              </>
             )}
+
+            <div className="grid-x grid-margin-x align-middle rsvp__form-row">
+              <div className="cell small-12 large-6">
+                <div className="rsvp__label-container">
+                  <label className="rsvp__label" htmlFor="reg-number">Registration number (if bringing a car)</label>
+                </div>
+              </div>
+              <div className="cell small-12 large-6">
+                <div className="rsvp__input-container">
+                  <input
+                    type="text"
+                    id="reg-number"
+                    name="reg-number"
+                  />
+                </div>
+              </div>
+            </div>
 
             {invalid && (
               <div className="grid-x grid-margin-x align-center">

@@ -8,6 +8,7 @@ import Accommodation from './pages/Accommodation';
 import NotFound from './pages/NotFound';
 import Travel from './pages/Travel';
 import Music from './pages/Music';
+import RSVP from './pages/RSVP';
 
 const title = 'Nelsonbury Wedding Festival';
 const description = 'Nelsonbury Wedding Festival';
@@ -63,18 +64,18 @@ export default [
     description,
     hydrate: safeImport(() => require('../../server/hydrate/music').default),
   },
-  // {
-  //   path: '/rsvp',
-  //   component: RSVP,
-  //   title,
-  //   description,
-  //   hydrate: safeImport(() => require('../../server/hydrate/rsvp').default),
-  //   assets: {
-  //     js: [
-  //       `https://www.google.com/recaptcha/api.js?render=${process.env.WEB_RECAPTCHA_SITE_KEY}`,
-  //     ],
-  //   },
-  // },
+  {
+    path: '/rsvp',
+    component: RSVP,
+    title,
+    description,
+    hydrate: safeImport(() => require('../../server/hydrate/rsvp').default),
+    assets: {
+      js: [
+        `https://www.google.com/recaptcha/api.js?render=${process.env.WEB_RECAPTCHA_SITE_KEY}`,
+      ],
+    },
+  },
   {
     path: '*',
     component: NotFound,
