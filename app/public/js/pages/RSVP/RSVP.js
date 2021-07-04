@@ -159,7 +159,7 @@ const RSVP = ({
 
             <div className="grid-x grid-margin-x align-middle rsvp__form-row">
               <div className="cell">
-                <h2 className="text-align-center">Wedding Breakfast Food choices</h2>
+                <h2 className="text-align-center">Wedding Breakfast</h2>
               </div>
             </div>
 
@@ -231,7 +231,7 @@ const RSVP = ({
               <>
                 <div className="grid-x grid-margin-x align-middle rsvp__form-row">
                   <div className="cell">
-                    <h2 className="text-align-center">Hartnoll Hotel lunch food choices</h2>
+                    <h2 className="text-align-center">Hartnoll Hotel lunch (£27.50 per person)</h2>
                   </div>
                 </div>
                 {R.compose(
@@ -242,47 +242,47 @@ const RSVP = ({
                       index={index}
                       name={getGuestName({ index })}
                       formData={formData}
-                      childMenu=""
+                      childMenu="TBC"
                       starters={[
                         {
-                          label: 'Starter One',
-                          value: 'one',
+                          label: 'Roasted Heritage Beetroot and Grilled Goats Cheese Salad, Hazelnuts, Pumpkin Seed and Fennel Dukkah, Baby Leaf Salad',
+                          value: 'goats-cheese-salad',
                         },
                         {
-                          label: 'Starter Two',
-                          value: 'two',
+                          label: 'Charred Severn and Wye Smoked Mackerel Mousse, Apple and Walnut Salad, Horseradish Mayo, Orange Curd',
+                          value: 'mackerel-mousse',
                         },
                         {
-                          label: 'Starter Three',
-                          value: 'three',
+                          label: 'Ham Hock Terrine, Baby Pickles, Mustard Mayo, Sour Dough Toast',
+                          value: 'ham-hock',
                         },
                       ]}
                       mains={[
                         {
-                          label: 'Main One',
-                          value: 'one',
+                          label: 'Baked Aubergine, Feta Cheese, Vegetable Ragout, Cous Cous Salad, Balsamic Dressing',
+                          value: 'aubergine',
                         },
                         {
-                          label: 'Main Two',
-                          value: 'two',
+                          label: 'West Country Beef Burger, Smoked Bacon, West Country Gruyere Cheese, Spiked BBQ & Maple Sauce, Hartnoll Coleslaw & French Fries',
+                          value: 'burger',
                         },
                         {
-                          label: 'Main Three',
-                          value: 'three',
+                          label: 'Beachridge Farm Maze Fed Chicken Breast, Fondant Potato, Green Beans, Thyme Jus',
+                          value: 'chicken',
                         },
                       ]}
                       desserts={[
                         {
-                          label: 'Dessert One',
-                          value: 'one',
+                          label: 'Summer Berry Eton Mess',
+                          value: 'eton-mess',
                         },
                         {
-                          label: 'Dessert Two',
-                          value: 'two',
+                          label: 'Dark Chocolate Brownie, Chocolate Sauce, Honeycomb Ice Cream',
+                          value: 'brownie',
                         },
                         {
-                          label: 'Dessert Three',
-                          value: 'three',
+                          label: 'Glazed Lemon Tart, Blackcurrant Sorbet',
+                          value: 'lemon-tart',
                         },
                       ]}
                     />
