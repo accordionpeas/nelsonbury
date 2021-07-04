@@ -1,5 +1,7 @@
 import * as R from 'ramda';
-import sendgrid from 'sendgrid';
+import sgMail from '@sendgrid/mail';
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const getNames = ({ req }) => (
   R.compose(
@@ -45,25 +47,16 @@ const getEmailText = (req) => {
 };
 
 export default async (req, res) => {
-  const text = getEmailText(req);
   const names = getNames({ req });
-  const subject = `RSVP from ${names.join(', ')}`;
 
-  const helper = sendgrid.mail;
-  const fromEmail = new helper.Email('rsvp@nelsonbury.com');
-  const toEmail = new helper.Email(process.env.GMAIL_USER);
-  const content = new helper.Content('text/plain', text);
-  const mail = new helper.Mail(fromEmail, subject, toEmail, content);
+  const msg = {
+    to: process.env.GMAIL_USER,
+    from: 'rsvp@nelsonbury.com',
+    subject: `RSVP from ${names.join(', ')}`,
+    text: getEmailText(req),
+  };
 
-  const sg = sendgrid(process.env.SENDGRID_API_KEY);
-
-  const request = sg.emptyRequest({
-    method: 'POST',
-    path: '/v3/mail/send',
-    body: mail.toJSON(),
-  });
-
-  await sg.API(request);
+  await sgMail.send(msg);
 
   res.send({});
 };
