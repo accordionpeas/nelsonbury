@@ -173,7 +173,7 @@ const RSVP = ({
                     name={getGuestName({ index })}
                     formData={formData}
                     childMenu="Sausages and mash with peas and ketchup"
-                    noMenu="There will be fridge space available if you would like to bring your own food for infants"
+                    noMenu="There will be fridge space and cooking facilities available if you would like to bring your own food for infants"
                     starters={[
                       {
                         label: 'Fresh Dorset crab with spiced avocado, herb salad and Parmesan tuile',
