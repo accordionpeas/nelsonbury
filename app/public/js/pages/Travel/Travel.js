@@ -30,7 +30,7 @@ const Travel = () => (
               </p>
               <p>
                 Transport will be provided to and from the church.{' '}
-                Please be ready to leave Huntsham Court at 12pm.
+                Please be ready to leave Huntsham Court at 11.45am.
               </p>
               <p>
                 For those making their own way there, parking is available at the church.

@@ -41,7 +41,7 @@ const LineUp = ({
             <div className="page__section">
               <h2>The Big Day - Tuesday 3rd August</h2>
               <ul>
-                <li>Breakfast from 9am - 11am</li>
+                <li>Breakfast from 8.30am - 10.30am</li>
                 <li>Ceremony at <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/sPzxJbt5MutYLV9b7">St. George&apos;s Church</a> 1pm</li>
                 <li>Reception from 3pm</li>
               </ul>
@@ -49,6 +49,7 @@ const LineUp = ({
             <div className="page__section">
               <h2>Wednesday 4th August</h2>
               <ul>
+                <li>Breakfast from 8.00am - 10.00am</li>
                 <li>Check-out of Huntsham Court at 10am</li>
               </ul>
             </div>
