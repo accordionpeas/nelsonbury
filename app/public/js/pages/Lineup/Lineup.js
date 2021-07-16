@@ -51,6 +51,7 @@ const LineUp = ({
               <ul>
                 <li>Breakfast from 8.00am - 10.00am</li>
                 <li>Check-out of Huntsham Court at 10am</li>
+                <li>Lunch at <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/NQiuXGQpXZw1kDsF7">Hartnoll Hotel</a> at 1pm</li>
               </ul>
             </div>
           </div>
