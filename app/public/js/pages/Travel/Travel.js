@@ -39,11 +39,12 @@ const Travel = () => (
             <div className="page__section">
               <h2>Local taxis</h2>
               <ul>
+                <li>Frankies Taxis – <a href="tel:01884255333">01884 255 333</a></li>
                 <li>Parkway Taxis – <a href="tel:0188438899">01884 388 99</a></li>
                 <li>A-2-B Taxis – <a href="tel:01884251252">01884 251 252</a></li>
                 <li>Trev&apos;s Taxi – <a href="tel:07592784849">07592 784 849</a></li>
               </ul>
-              <p>Taxi fare will be about £15 from the station to Huntsham Court.</p>
+              <p>Taxi fare will be about £20 from the station to Huntsham Court.</p>
               <p>
                 Tiverton is a very remote area. If you will need a taxi then we recommend{' '}
                 you book it several days in advance. There is no Uber here.
